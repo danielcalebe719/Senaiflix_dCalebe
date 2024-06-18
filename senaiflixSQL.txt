@@ -1,0 +1,328 @@
+-- phpMyAdmin SQL Dump
+-- version 5.1.3
+-- https://www.phpmyadmin.net/
+--
+-- Host: 127.0.0.1
+-- Tempo de geração: 18-Jun-2024 às 21:52
+-- Versão do servidor: 10.4.24-MariaDB
+-- versão do PHP: 8.1.5
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+--
+-- Banco de dados: `senaiflix_dcalebe`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `assinaturas`
+--
+
+CREATE TABLE `assinaturas` (
+  `id` int(11) NOT NULL,
+  `id_cliente` int(11) DEFAULT NULL,
+  `plano` varchar(50) DEFAULT NULL,
+  `data_inicio` date DEFAULT NULL,
+  `data_fim` date DEFAULT NULL,
+  `data_cadastro` datetime DEFAULT NULL,
+  `data_atualizacao` datetime DEFAULT NULL,
+  `status` int(1) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Extraindo dados da tabela `assinaturas`
+--
+
+INSERT INTO `assinaturas` (`id`, `id_cliente`, `plano`, `data_inicio`, `data_fim`, `data_cadastro`, `data_atualizacao`, `status`) VALUES
+(1, 21, '123213', '2024-06-14', '2024-06-12', '2024-06-17 00:00:00', '2024-06-17 13:15:27', 0),
+(2, 22, '2', '2024-06-19', '2024-06-20', '2024-06-17 00:00:00', '2024-06-17 13:15:08', 1),
+(3, 139, '1', '5005-05-05', '2001-01-21', '2024-06-18 00:00:00', '2024-06-18 15:49:44', 1),
+(4, 139, '1', '5005-05-05', '2001-01-21', '2024-06-18 00:00:00', '2024-06-18 15:54:38', 1),
+(5, 139, '1', '5005-05-05', '2001-01-21', '2024-06-18 00:00:00', '2024-06-18 15:55:45', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `clientes`
+--
+
+CREATE TABLE `clientes` (
+  `id` int(10) NOT NULL,
+  `nome` varchar(100) NOT NULL,
+  `cpf` varchar(11) NOT NULL,
+  `endereco` varchar(255) NOT NULL,
+  `bairro` varchar(100) NOT NULL,
+  `cidade` varchar(100) NOT NULL,
+  `estado` varchar(2) NOT NULL,
+  `cep` varchar(8) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `telefone` varchar(15) NOT NULL,
+  `data_cadastro` datetime NOT NULL,
+  `data_atualizacao` datetime NOT NULL,
+  `status` int(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Extraindo dados da tabela `clientes`
+--
+
+INSERT INTO `clientes` (`id`, `nome`, `cpf`, `endereco`, `bairro`, `cidade`, `estado`, `cep`, `email`, `telefone`, `data_cadastro`, `data_atualizacao`, `status`) VALUES
+(21, 'aaaaa', '321313', 'we22321', '131232', '13123', '21', '213213', '3213123@32', '12321313', '2024-06-13 15:56:53', '2024-06-18 16:24:04', 0),
+(22, '2313213', '21321', '2121312', '3213', '123123', '12', '3123', '2221312@331', '3213213', '2024-06-13 15:57:04', '2024-06-13 15:57:04', 1),
+(27, 'sadsad', 'ASDad', 'dsadsad', 'dasdasd', 'asdsada', 'ds', 'sadsa@a', 'sad@dasdas', 'dsasdad', '2024-06-13 16:02:10', '2024-06-13 16:02:10', 1),
+(28, 'dadsad', 'sada@#d', 'sdadsad', 'sadas', 'dsadsad', 'as', 'asdsadad', 'sadADsa@dsa', 'sadasd', '2024-06-13 16:02:20', '2024-06-13 16:02:20', 1),
+(29, 'dadsad', 'sada@#d', 'sdadsad', 'sadas', 'dsadsad', 'as', 'asdsadad', 'sadADsa@dsa', 'sadasd', '2024-06-13 16:03:20', '2024-06-13 16:03:20', 1),
+(30, 'dadsad', 'sada@#d', 'sdadsad', 'sadas', 'dsadsad', 'as', 'asdsadad', 'sadADsa@dsa', 'sadasd', '2024-06-13 16:04:16', '2024-06-13 16:04:16', 1),
+(31, '1232132', '1321', '213123', '12312', '3123', '21', '3213', '312313231@23131', '2132131', '2024-06-13 16:04:27', '2024-06-13 16:04:27', 1),
+(32, '1232132', '1321', '213123', '12312', '3123', '21', '3213', '312313231@23131', '2132131', '2024-06-13 16:05:28', '2024-06-13 16:05:28', 1),
+(33, '1232132', '1321', '213123', '12312', '3123', '21', '3213', '312313231@23131', '2132131', '2024-06-13 16:05:43', '2024-06-13 16:05:43', 1),
+(34, '131231312', '3123123213', '321321', '32132', '131231', '23', '12321321', '3123123@13ewq', '312312332', '2024-06-13 16:05:59', '2024-06-13 16:05:59', 1),
+(35, '131231312', '3123123213', '321321', '32132', '131231', '23', '12321321', '3123123@13ewq', '312312332', '2024-06-13 16:06:28', '2024-06-13 16:06:28', 1),
+(36, '31221321', '3123', '123123', '123123', '12312', '31', '213213', '123123123231@32', '131231', '2024-06-13 16:06:38', '2024-06-13 16:06:38', 1),
+(37, '31221321', '3123', '123123', '123123', '12312', '31', '213213', '123123123231@32', '131231', '2024-06-13 16:06:50', '2024-06-13 16:06:50', 1),
+(38, '32132131', '3213', '12321', '312321', '21312', '32', '213213', '3123123@3132', '321312', '2024-06-13 16:07:00', '2024-06-13 16:07:00', 1),
+(39, '32132131', '3213', '12321', '312321', '21312', '32', '213213', '3123123@3132', '321312', '2024-06-13 16:07:16', '2024-06-13 16:07:16', 1),
+(40, '32132131', '3213', '12321', '312321', '21312', '32', '213213', '3123123@3132', '321312', '2024-06-13 16:07:37', '2024-06-13 16:07:37', 1),
+(41, 'llkklklkl', '2121212', 'utyutrret', 'rter', 'erterte', 'te', '21212121', 'terter@fd.com', 'fsdf', '2024-06-13 16:09:34', '2024-06-13 16:09:34', 1),
+(42, 'asdasd', '15654', '4656456', '465446465', '45646544', '65', '56456465', '46fdsf@d.com', 'dasd', '2024-06-13 16:11:54', '2024-06-13 16:11:54', 1),
+(43, 'dadskl', '5465456', '56456564', '56456', '456456', '45', '4654564', '456465@fd.ocn', '4564', '2024-06-13 16:13:32', '2024-06-13 16:13:32', 1),
+(44, 'dadskl', '5465456', '56456564', '56456', '456456', '45', '4654564', '456465@fd.ocn', '4564', '2024-06-13 16:13:51', '2024-06-13 16:13:51', 1),
+(45, 'dadskl', '5465456', '56456564', '56456', '456456', '45', '4654564', '456465@fd.ocn', '4564', '2024-06-13 16:15:52', '2024-06-13 16:15:52', 1),
+(46, 'dadskl', '5465456', '56456564', '56456', '456456', '45', '4654564', '456465@fd.ocn', '4564', '2024-06-13 16:16:09', '2024-06-13 16:16:09', 1),
+(47, 'dadskl', '5465456', '56456564', '56456', '456456', '45', '4654564', '456465@fd.ocn', '4564', '2024-06-13 16:17:10', '2024-06-13 16:17:10', 1),
+(48, 'dadskl', '5465456', '56456564', '56456', '456456', '45', '4654564', '456465@fd.ocn', '4564', '2024-06-13 16:17:10', '2024-06-13 16:17:10', 1),
+(49, 'dadskl', '5465456', '56456564', '56456', '456456', '45', '4654564', '456465@fd.ocn', '4564', '2024-06-13 16:17:13', '2024-06-13 16:17:13', 1),
+(50, 'dadskl', '5465456', '56456564', '56456', '456456', '45', '4654564', '456465@fd.ocn', '4564', '2024-06-13 16:17:13', '2024-06-13 16:17:13', 1),
+(51, 'dadskl', '5465456', '56456564', '56456', '456456', '45', '4654564', '456465@fd.ocn', '4564', '2024-06-13 16:17:23', '2024-06-13 16:17:23', 1),
+(52, 'dadskl', '5465456', '56456564', '56456', '456456', '45', '4654564', '456465@fd.ocn', '4564', '2024-06-13 16:17:23', '2024-06-13 16:17:23', 1),
+(53, 'dadskl', '5465456', '56456564', '56456', '456456', '45', '4654564', '456465@fd.ocn', '4564', '2024-06-13 16:18:29', '2024-06-13 16:18:29', 1),
+(54, 'dadskl', '5465456', '56456564', '56456', '456456', '45', '4654564', '456465@fd.ocn', '4564', '2024-06-13 16:18:29', '2024-06-13 16:18:29', 1),
+(55, 'dadskl', '5465456', '56456564', '56456', '456456', '45', '4654564', '456465@fd.ocn', '4564', '2024-06-13 16:19:22', '2024-06-13 16:19:22', 1),
+(56, 'dadskl', '5465456', '56456564', '56456', '456456', '45', '4654564', '456465@fd.ocn', '4564', '2024-06-13 16:19:22', '2024-06-13 16:19:22', 1),
+(57, 'dadskl', '5465456', '56456564', '56456', '456456', '45', '4654564', '456465@fd.ocn', '4564', '2024-06-13 16:19:22', '2024-06-13 16:19:22', 1),
+(58, 'dadskl', '5465456', '56456564', '56456', '456456', '45', '4654564', '456465@fd.ocn', '4564', '2024-06-13 16:20:08', '2024-06-13 16:20:08', 1),
+(59, 'dadskl', '5465456', '56456564', '56456', '456456', '45', '4654564', '456465@fd.ocn', '4564', '2024-06-13 16:20:08', '2024-06-13 16:20:08', 1),
+(60, '3213213', '213', '12321', '3213', '21321', '32', '21321321', '321323@3123', '32131', '2024-06-13 16:20:39', '2024-06-13 16:20:39', 1),
+(61, '3213213', '213', '12321', '3213', '21321', '32', '21321321', '321323@3123', '32131', '2024-06-13 16:20:43', '2024-06-13 16:20:43', 1),
+(62, '3213213', '213', '12321', '3213', '21321', '32', '21321321', '321323@3123', '32131', '2024-06-13 16:20:51', '2024-06-13 16:20:51', 1),
+(63, '3213213', '213', '12321', '3213', '21321', '32', '21321321', '321323@3123', '32131', '2024-06-13 16:20:51', '2024-06-13 16:20:51', 1),
+(64, '3213213', '213', '12321', '3213', '21321', '32', '21321321', '321323@3123', '32131', '2024-06-13 16:21:25', '2024-06-13 16:21:25', 1),
+(65, '3213213', '213', '12321', '3213', '21321', '32', '21321321', '321323@3123', '32131', '2024-06-13 16:21:25', '2024-06-13 16:21:25', 1),
+(66, '3213213', '213', '12321', '3213', '21321', '32', '21321321', '321323@3123', '32131', '2024-06-13 16:21:25', '2024-06-13 16:21:25', 1),
+(67, '3213213', '213', '12321', '3213', '21321', '32', '21321321', '321323@3123', '32131', '2024-06-13 16:21:57', '2024-06-13 16:21:57', 1),
+(68, '3213213', '213', '12321', '3213', '21321', '32', '21321321', '321323@3123', '32131', '2024-06-13 16:21:57', '2024-06-13 16:21:57', 1),
+(69, '3213213', '213', '12321', '3213', '21321', '32', '21321321', '321323@3123', '32131', '2024-06-13 16:22:06', '2024-06-13 16:22:06', 1),
+(70, '3213213', '213', '12321', '3213', '21321', '32', '21321321', '321323@3123', '32131', '2024-06-13 16:22:06', '2024-06-13 16:22:06', 1),
+(71, '3213213', '213', '12321', '3213', '21321', '32', '21321321', '321323@3123', '32131', '2024-06-13 16:22:06', '2024-06-13 16:22:06', 1),
+(72, '3213213', '213', '12321', '3213', '21321', '32', '21321321', '321323@3123', '32131', '2024-06-13 16:23:27', '2024-06-13 16:23:27', 1),
+(73, '3213213', '213', '12321', '3213', '21321', '32', '21321321', '321323@3123', '32131', '2024-06-13 16:23:27', '2024-06-13 16:23:27', 1),
+(74, '3213213', '213', '12321', '3213', '21321', '32', '21321321', '321323@3123', '32131', '2024-06-13 16:23:29', '2024-06-13 16:23:29', 1),
+(75, '3213213', '213', '12321', '3213', '21321', '32', '21321321', '321323@3123', '32131', '2024-06-13 16:23:30', '2024-06-13 16:23:30', 1),
+(76, '3213213', '213', '12321', '3213', '21321', '32', '21321321', '321323@3123', '32131', '2024-06-13 16:23:30', '2024-06-13 16:23:30', 1),
+(77, '3213213', '213', '12321', '3213', '21321', '32', '21321321', '321323@3123', '32131', '2024-06-13 16:23:30', '2024-06-13 16:23:30', 1),
+(78, '3213213', '213', '12321', '3213', '21321', '32', '21321321', '321323@3123', '32131', '2024-06-13 16:23:30', '2024-06-13 16:23:30', 1),
+(79, 'sdsadsa', 'dsadsa', 'sadsads', 'adsadsad', 'sad', 'ad', 'dsadsad', 'dsadad@13213', '@332132', '2024-06-13 16:23:54', '2024-06-13 16:23:54', 1),
+(80, 'sdsadsa', 'dsadsa', 'sadsads', 'adsadsad', 'sad', 'ad', 'dsadsad', 'dsadad@13213', '@332132', '2024-06-13 16:24:09', '2024-06-13 16:24:09', 1),
+(81, 'sdsadsa', 'dsadsa', 'sadsads', 'adsadsad', 'sad', 'ad', 'dsadsad', 'dsadad@13213', '@332132', '2024-06-13 16:24:09', '2024-06-13 16:24:09', 1),
+(82, 'sdsadsa', 'dsadsa', 'sadsads', 'adsadsad', 'sad', 'ad', 'dsadsad', 'dsadad@13213', '@332132', '2024-06-13 16:24:09', '2024-06-13 16:24:09', 1),
+(83, 'sdsadsa', 'dsadsa', 'sadsads', 'adsadsad', 'sad', 'ad', 'dsadsad', 'dsadad@13213', '@332132', '2024-06-13 16:24:13', '2024-06-13 16:24:13', 1),
+(84, 'sdsadsa', 'dsadsa', 'sadsads', 'adsadsad', 'sad', 'ad', 'dsadsad', 'dsadad@13213', '@332132', '2024-06-13 16:24:13', '2024-06-13 16:24:13', 1),
+(85, 'sdsadsa', 'dsadsa', 'sadsads', 'adsadsad', 'sad', 'ad', 'dsadsad', 'dsadad@13213', '@332132', '2024-06-13 16:24:13', '2024-06-13 16:24:13', 1),
+(86, 'sdsadsa', 'dsadsa', 'sadsads', 'adsadsad', 'sad', 'ad', 'dsadsad', 'dsadad@13213', '@332132', '2024-06-13 16:24:54', '2024-06-13 16:24:54', 1),
+(87, 'sdsadsa', 'dsadsa', 'sadsads', 'adsadsad', 'sad', 'ad', 'dsadsad', 'dsadad@13213', '@332132', '2024-06-13 16:24:54', '2024-06-13 16:24:54', 1),
+(88, 'sdsadsa', 'dsadsa', 'sadsads', 'adsadsad', 'sad', 'ad', 'dsadsad', 'dsadad@13213', '@332132', '2024-06-13 16:24:54', '2024-06-13 16:24:54', 1),
+(89, 'sdsadsa', 'dsadsa', 'sadsads', 'adsadsad', 'sad', 'ad', 'dsadsad', 'dsadad@13213', '@332132', '2024-06-13 16:25:05', '2024-06-13 16:25:05', 1),
+(90, 'sdsadsa', 'dsadsa', 'sadsads', 'adsadsad', 'sad', 'ad', 'dsadsad', 'dsadad@13213', '@332132', '2024-06-13 16:25:05', '2024-06-13 16:25:05', 1),
+(91, 'sdsadsa', 'dsadsa', 'sadsads', 'adsadsad', 'sad', 'ad', 'dsadsad', 'dsadad@13213', '@332132', '2024-06-13 16:25:05', '2024-06-13 16:25:05', 1),
+(92, 'sdsadsa', 'dsadsa', 'sadsads', 'adsadsad', 'sad', 'ad', 'dsadsad', 'dsadad@13213', '@332132', '2024-06-13 16:25:05', '2024-06-13 16:25:05', 1),
+(93, 'sdsadsa', 'dsadsa', 'sadsads', 'adsadsad', 'sad', 'ad', 'dsadsad', 'dsadad@13213', '@332132', '2024-06-13 16:25:06', '2024-06-13 16:25:06', 1),
+(94, 'sdsadsa', 'dsadsa', 'sadsads', 'adsadsad', 'sad', 'ad', 'dsadsad', 'dsadad@13213', '@332132', '2024-06-13 16:26:40', '2024-06-13 16:26:40', 1),
+(95, 'sdsadsa', 'dsadsa', 'sadsads', 'adsadsad', 'sad', 'ad', 'dsadsad', 'dsadad@13213', '@332132', '2024-06-13 16:27:22', '2024-06-13 16:27:22', 1),
+(96, 'sdsadsa', 'dsadsa', 'sadsads', 'adsadsad', 'sad', 'ad', 'dsadsad', 'dsadad@13213', '@332132', '2024-06-13 16:27:22', '2024-06-13 16:27:22', 1),
+(97, 'sdsadsa', 'dsadsa', 'sadsads', 'adsadsad', 'sad', 'ad', 'dsadsad', 'dsadad@13213', '@332132', '2024-06-13 16:27:40', '2024-06-13 16:27:40', 1),
+(98, 'sdsadsa', 'dsadsa', 'sadsads', 'adsadsad', 'sad', 'ad', 'dsadsad', 'dsadad@13213', '@332132', '2024-06-13 16:27:40', '2024-06-13 16:27:40', 1),
+(99, 'sdsadsa', 'dsadsa', 'sadsads', 'adsadsad', 'sad', 'ad', 'dsadsad', 'dsadad@13213', '@332132', '2024-06-13 16:27:40', '2024-06-13 16:27:40', 1),
+(100, 'dsadsadsadas', 'dadas@31', 'dasdsadsad', 'dsadasdas', 'sadsa', 'ds', 'asddsads', 'sdad@asdad', 'sdadsA', '2024-06-13 16:27:51', '2024-06-13 16:27:51', 1),
+(101, 'dsadsadsadas', 'dadas@31', 'dasdsadsad', 'dsadasdas', 'sadsa', 'ds', 'asddsads', 'sdad@asdad', 'sdadsA', '2024-06-13 16:28:49', '2024-06-13 16:28:49', 1),
+(102, 'dsadsadsadas', 'dadas@31', 'dasdsadsad', 'dsadasdas', 'sadsa', 'ds', 'asddsads', 'sdad@asdad', 'sdadsA', '2024-06-13 16:28:49', '2024-06-13 16:28:49', 1),
+(103, 'dsadsadsadas', 'dadas@31', 'dasdsadsad', 'dsadasdas', 'sadsa', 'ds', 'asddsads', 'sdad@asdad', 'sdadsA', '2024-06-13 16:28:50', '2024-06-13 16:28:50', 1),
+(104, 'sadsads', 'adsadsa', 'dsadsad', 'sadsads', 'dsadsad', 'sa', 'dsadsads', 'asdsadsa@dsa', 'sadsadad', '2024-06-13 16:29:02', '2024-06-13 16:29:02', 1),
+(105, 'sadsads', 'adsadsa', 'dsadsad', 'sadsads', 'dsadsad', 'sa', 'dsadsads', 'asdsadsa@dsa', 'sadsadad', '2024-06-13 16:30:40', '2024-06-13 16:30:40', 1),
+(106, '3213213', '1312', '213123', '21321', '321321', '12', '3213', '2132213@adasda', '3213213', '2024-06-13 16:30:54', '2024-06-13 16:30:54', 1),
+(107, '3213213', '1312', '213123', '21321', '321321', '12', '3213', '2132213@adasda', '3213213', '2024-06-13 16:31:26', '2024-06-13 16:31:26', 1),
+(108, '3213213', '1312', '213123', '21321', '321321', '12', '3213', '2132213@adasda', '3213213', '2024-06-13 16:31:51', '2024-06-13 16:31:51', 1),
+(109, 'dsadsad', 'dsadasda', 'dsad', 'sadsadasds', 'dsadsa', 'ds', 'sadsa', 'dasdas@dsada', 'sdadsada', '2024-06-13 16:32:05', '2024-06-13 16:32:05', 1),
+(110, 'dsadsad', 'dsadasda', 'dsad', 'sadsadasds', 'dsadsa', 'ds', 'sadsa', 'dasdas@dsada', 'sdadsada', '2024-06-13 16:33:15', '2024-06-13 16:33:15', 1),
+(111, 'dsadsa', 'dsadsa', 'dsdsadd', 'dsad', 'adsad', 'sa', 'dsadsad', 'dsad@dasd', 'dsadsada', '2024-06-13 16:33:29', '2024-06-13 16:33:29', 1),
+(112, 'dsadsa', 'dsadsa', 'dsdsadd', 'dsad', 'adsad', 'sa', 'dsadsad', 'dsad@dasd', 'dsadsada', '2024-06-13 16:34:09', '2024-06-13 16:34:09', 1),
+(113, 'dsadsa', 'dsadsa', 'dsdsadd', 'dsad', 'adsad', 'sa', 'dsadsad', 'dsad@dasd', 'dsadsada', '2024-06-13 16:34:09', '2024-06-13 16:34:09', 1),
+(114, 'dsadsa', 'dsadsa', 'dsdsadd', 'dsad', 'adsad', 'sa', 'dsadsad', 'dsad@dasd', 'dsadsada', '2024-06-13 16:34:10', '2024-06-13 16:34:10', 1),
+(115, 'dsadsa', 'dsadsa', 'dsdsadd', 'dsad', 'adsad', 'sa', 'dsadsad', 'dsad@dasd', 'dsadsada', '2024-06-13 16:35:31', '2024-06-13 16:35:31', 1),
+(116, 'dsadsa', 'dsadsa', 'dsdsadd', 'dsad', 'adsad', 'sa', 'dsadsad', 'dsad@dasd', 'dsadsada', '2024-06-13 16:35:32', '2024-06-13 16:35:32', 1),
+(117, 'dsadsa', 'dsadsa', 'dsdsadd', 'dsad', 'adsad', 'sa', 'dsadsad', 'dsad@dasd', 'dsadsada', '2024-06-13 16:35:45', '2024-06-13 16:35:45', 1),
+(118, 'dsadsa', 'dsadsa', 'dsdsadd', 'dsad', 'adsad', 'sa', 'dsadsad', 'dsad@dasd', 'dsadsada', '2024-06-13 16:35:45', '2024-06-13 16:35:45', 1),
+(119, 'sdsad', 'sads', 'sadsad', 'sads', 'adsad', 'sd', 'adsa', 'dsdas@dasd', 'sddad', '2024-06-13 16:35:55', '2024-06-13 16:35:55', 1),
+(120, 'sdsad', 'sads', 'sadsad', 'sads', 'adsad', 'sd', 'adsa', 'dsdas@dasd', 'sddad', '2024-06-13 16:36:26', '2024-06-13 16:36:26', 1),
+(121, 'sdsad', 'sads', 'sadsad', 'sads', 'adsad', 'sd', 'adsa', 'dsdas@dasd', 'sddad', '2024-06-13 16:36:26', '2024-06-13 16:36:26', 1),
+(122, '3213213', '321321', '321313@233', '2323', '1321', '32', '3213213', '321321@21', '313213', '2024-06-13 16:36:42', '2024-06-13 16:36:42', 1),
+(123, '3213213', '321321', '321313@233', '2323', '1321', '32', '3213213', '321321@21', '313213', '2024-06-13 16:37:03', '2024-06-13 16:37:03', 1),
+(124, '3213213', '321321', '321313@233', '2323', '1321', '32', '3213213', '321321@21', '313213', '2024-06-13 16:38:36', '2024-06-13 16:38:36', 1),
+(125, '3213213', '321321', '321313@233', '2323', '1321', '32', '3213213', '321321@21', '313213', '2024-06-13 16:38:39', '2024-06-13 16:38:39', 1),
+(126, '3213213', '321321', '321313@233', '2323', '1321', '32', '3213213', '321321@21', '313213', '2024-06-13 16:38:56', '2024-06-13 16:38:56', 1),
+(127, '3213213', '321321', '321313@233', '2323', '1321', '32', '3213213', '321321@21', '313213', '2024-06-13 16:40:31', '2024-06-13 16:40:31', 1),
+(128, '3213213', '321321', '321313@233', '2323', '1321', '32', '3213213', '321321@21', '313213', '2024-06-13 16:40:31', '2024-06-13 16:40:31', 1),
+(129, '3213213', '321321', '321313@233', '2323', '1321', '32', '3213213', '321321@21', '313213', '2024-06-13 16:40:31', '2024-06-13 16:40:31', 1),
+(130, '3213213', '321321', '321313@233', '2323', '1321', '32', '3213213', '321321@21', '313213', '2024-06-13 16:40:31', '2024-06-13 16:40:31', 1),
+(131, 'sdadsadsadsads', 'sadsad', 'dsa', 'dsadsadsa', 'dsad', 'sa', 'sadsadsa', 'dsadsadsa@dad', 'dssa', '2024-06-13 16:40:46', '2024-06-13 16:40:46', 1),
+(132, 'sdadsadsadsads', 'sadsad', 'dsa', 'dsadsadsa', 'dsad', 'sa', 'sadsadsa', 'dsadsadsa@dad', 'dssa', '2024-06-13 16:41:06', '2024-06-13 16:41:06', 1),
+(133, 'sdadsadsadsads', 'sadsad', 'dsa', 'dsadsadsa', 'dsad', 'sa', 'sadsadsa', 'dsadsadsa@dad', 'dssa', '2024-06-13 16:42:13', '2024-06-13 16:42:13', 1),
+(134, 'sdadsadsadsads', 'sadsad', 'dsa', 'dsadsadsa', 'dsad', 'sa', 'sadsadsa', 'dsadsadsa@dad', 'dssa', '2024-06-13 16:43:28', '2024-06-13 16:43:28', 1),
+(135, 'sdadsadsadsads', 'sadsad', 'dsa', 'dsadsadsa', 'dsad', 'sa', 'sadsadsa', 'dsadsadsa@dad', 'dssa', '2024-06-13 16:43:39', '2024-06-13 16:43:39', 1),
+(136, 'dsadsa', 'dsa', 'sadsad', 's', 's', 's', 'sad', 's@s', 'dsadasd', '2024-06-13 16:43:48', '2024-06-13 16:43:48', 1),
+(137, 'dsadsa', 'dsa', 'sadsad', 's', 's', 's', 'sad', 's@s', 'dsadasd', '2024-06-13 16:44:39', '2024-06-13 16:44:39', 1),
+(138, 'dsadsad', 'asd', 'ds', 's', 's', 's', 'adsadsa', 's@s', 'dsadsa', '2024-06-13 16:44:48', '2024-06-13 16:44:48', 1),
+(139, 'dsadsad', 'asd', 'ds', 's', 's', 's', 'adsadsa', 's@s', 'dsadsa', '2024-06-13 16:45:11', '2024-06-13 16:45:11', 1),
+(140, 'dsadsad', 'asd', 'ds', 's', 's', 's', 'adsadsa', 's@s', 'dsadsa', '2024-06-13 16:47:57', '2024-06-13 16:47:57', 1),
+(141, 'sadsad', 'dsad', 'dsadsadas', 'dsadsa', 'dsa', 'sa', 'dsadsa', 'dada@asdada', 'sdadsa', '2024-06-13 20:13:28', '2024-06-13 20:13:28', 0),
+(142, 'sadsad', 'dsad', 'dsadsadas', 'dsadsa', 'dsa', 'sa', 'dsadsa', 'dada@asdada', 'sdadsa', '2024-06-13 20:13:47', '2024-06-13 20:13:47', 0),
+(143, 's', 's', 's', 's', 's', 's', 's', 's@s', 's', '2024-06-13 20:42:30', '2024-06-13 20:42:30', 1),
+(144, 's', 's', 's', 's', 's', 's', 's', 's@s', 'sss', '2024-06-13 20:42:55', '2024-06-13 20:42:55', 1),
+(145, 's', 's', 's', 's', 's', 's', 's', 's@s', 'sss', '2024-06-13 20:43:43', '2024-06-13 20:43:43', 1),
+(146, 'sadadadsadsads', 'adsadsadsa', 'dsasadd', 'sadsad', 'sadsa', 'ds', 'dsa', 'adsa@dsadad', 'sadsadsadsad', '2024-06-13 20:43:58', '2024-06-13 20:43:58', 1),
+(147, 'k', 'k', 'k', 'k', 'k', 'k', 'k', 'k@k', 'k@k', '2024-06-13 20:44:45', '2024-06-13 20:44:45', 1),
+(148, 'adsads', 'dsadsad', 'dsad', 'sad', 'asdsa', 'ds', 'sadas', 'sadsa@asdd', 'sdsadad', '2024-06-13 21:53:47', '2024-06-13 21:53:47', 1),
+(149, '1', '1', 'Rua Edith Gomes Martins', 'Mantiqueira', 'Belo Horizonte', 'MG', '31655470', '11@2', '111', '2024-06-13 21:54:13', '2024-06-13 21:54:13', 0),
+(150, 'Kaua Henrique', '21382723183', 'Rua José Soares da Silva', 'Florença', 'Ribeirão das Neves', 'MG', '33825010', 'kauapp@gmail.com', '312312322', '2024-06-17 16:55:51', '2024-06-17 16:55:51', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `filmes`
+--
+
+CREATE TABLE `filmes` (
+  `id` int(11) NOT NULL,
+  `titulo` varchar(255) DEFAULT NULL,
+  `descricao` text DEFAULT NULL,
+  `ano_lancamento` date DEFAULT NULL,
+  `genero` varchar(100) DEFAULT NULL,
+  `classificacao` varchar(10) DEFAULT NULL,
+  `data_cadastro` datetime DEFAULT NULL,
+  `data_atualizacao` datetime DEFAULT NULL,
+  `status` int(1) DEFAULT NULL,
+  `video` varchar(1024) NOT NULL,
+  `imagem` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Extraindo dados da tabela `filmes`
+--
+
+INSERT INTO `filmes` (`id`, `titulo`, `descricao`, `ano_lancamento`, `genero`, `classificacao`, `data_cadastro`, `data_atualizacao`, `status`, `video`, `imagem`) VALUES
+(3, 'Frozen - Uma Aventura Congelante', 'Acompanhada por um vendedor de gelo, a jovem e destemida princesa Anna parte em uma jornada por perigosas montanhas de gelo na esperança de encontrar sua irmã, a rainha Elsa, e acabar com a terrível maldição de inverno eterno, que está provocando o congelamento do reino.', '2014-01-03', 'Animação', 'Livre', '2024-06-17 13:17:35', '2024-06-18 16:51:42', 0, 'https://hello-world-flat-violet-6291.wstnjewyeaykmdg.workers.dev/movies/Frozen%20%282013%29/frozen.2013.multi.proper.1080p.bluray.x264-fidelio.mkv', 'https://upload.wikimedia.org/wikipedia/pt/e/e5/Frozen_2013.png'),
+(4, 'Laranja Mecânica', 'O jovem Alex passa as noites com uma gangue de amigos briguentos. Depois que é preso, se submete a uma técnica de modificação de comportamento para poder ganhar sua liberdade.', '1972-04-26', 'masculino', 'PG-18', '2024-06-17 13:56:01', '2024-06-18 13:37:35', 1, 'https://hello-world-flat-violet-6291.wstnjewyeaykmdg.workers.dev/movies/A%20Clockwork%20Orange%20%281971%29/A.Clockwork.Orange.1971.PROPER.1080p.BluRay.x264-SADPANDA.mkv', 'https://m.media-amazon.com/images/I/61HgbCkcz4L._AC_UF1000,1000_QL80_.jpg'),
+(6, ' O Homem de Aço', 'om a iminente destruição de Krypton, seu planeta natal, Jor-El e sua mulher procuram preservar a raça enviando o filho recém-nascido para a Terra. A nave espacial da criança aterrissa na fazenda de Jonathan e Martha Kent, que o batizam de Clark e o criam como seu próprio filho.', '2013-01-21', 'Ação', 'PG-14', '2024-06-17 15:23:17', '2024-06-17 15:23:17', 1, 'https://hello-world-flat-violet-6291.wstnjewyeaykmdg.workers.dev/movies/Man%20of%20Steel%20%282013%29/Man.of.Steel.2013.1080p.BluRay.DTS.x264-HDMaNiAcS-4P.mkv', 'https://musicart.xboxlive.com/7/4a312c00-0000-0000-0000-000000000002/504/image.jpg?w=1920&h=1080'),
+(9, 'Homem de Ferro', 'Tony Stark é um industrial bilionário e inventor brilhante que realiza testes bélicos no exterior, mas é sequestrado por terroristas que o forçam a construir uma arma devastadora. Em vez disso, ele constrói uma armadura blindada e enfrenta seus sequestradores. Quando volta aos Estados Unidos, Stark aprimora a armadura e a utiliza para combater o crime.', '2008-01-01', 'Ação', 'PG-14', '2024-06-17 16:14:48', '2024-06-17 16:22:45', 1, 'https://hello-world-flat-violet-6291.wstnjewyeaykmdg.workers.dev/movies/Iron%20Man%20%282008%29/Iron.Man.2008.Hybrid.1080p.BluRay.REMUX.AVC.TrueHD.Atmos.7.1-BLURANiUM.mkv', 'https://br.web.img3.acsta.net/medias/nmedia/18/91/79/19/20163665.jpg'),
+(11, '1984', '1984 é um filme britânico de 1956, um drama de ficção científica em preto e branco dirigido por Michael Anderson, livremente baseado no livro homônimo de George Orwell.', '1956-12-12', 'Ficção científica/Drama', 'PG-18', '2024-06-17 16:53:41', '2024-06-17 16:54:08', 1, 'https://hello-world-flat-violet-6291.wstnjewyeaykmdg.workers.dev/movies/1984%20%281956%29/1984.1956.DVDRip.X264-HANDJOB.mkv', 'https://upload.wikimedia.org/wikipedia/pt/5/5d/1984_%28filme_de_1956%29.jpg'),
+(12, 'O Senhor dos Anéis', 'Em uma terra fantástica e única, um hobbit recebe de presente de seu tio um anel mágico e maligno que precisa ser destruído antes que caia nas mãos do mal. Para isso, o hobbit Frodo tem um caminho árduo pela frente, onde encontra perigo, medo e seres bizarros.                            ', '2002-01-01', 'Fantasia', 'PG-12', '2024-06-18 15:18:40', '2024-06-18 15:19:46', 1, 'https://hello-world-flat-violet-6291.wstnjewyeaykmdg.workers.dev/movies/The%20Lord%20of%20the%20Rings%20%281978%29/The.Lord.of.The.Rings.1978.1080p.BluRay.REMASTERED.DD5.1.x264-MaG.mkv', 'https://m.media-amazon.com/images/M/MV5BN2EyZjM3NzUtNWUzMi00MTgxLWI0NTctMzY4M2VlOTdjZWRiXkEyXkFqcGdeQXVyNDUzOTQ5MjY@._V1_FMjpg_UX1000_.jpg');
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `usuarios`
+--
+
+CREATE TABLE `usuarios` (
+  `id` int(11) NOT NULL,
+  `nome` varchar(255) DEFAULT NULL,
+  `usuario` varchar(50) DEFAULT NULL,
+  `senha` varchar(255) DEFAULT NULL,
+  `email` varchar(100) DEFAULT NULL,
+  `data_cadastro` datetime DEFAULT NULL,
+  `data_atualizacao` datetime DEFAULT NULL,
+  `status` int(1) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Extraindo dados da tabela `usuarios`
+--
+
+INSERT INTO `usuarios` (`id`, `nome`, `usuario`, `senha`, `email`, `data_cadastro`, `data_atualizacao`, `status`) VALUES
+(1, 'd', 'ds', '$2y$10$/T/Qt7E7WvAeQ79uAKMsRuQLGQqQrQr17Mh/0qo1KUjx5rU9451jC', 'd@d', '2024-06-17 18:13:05', '2024-06-18 14:12:11', 0),
+(2, 'Fafa viado', 'fafa', '$2y$10$JV5LbNIiqXeA7rItJI9ZdODEByZpSp23AAl4uJg0H.tEGnyRWD2Qm', 'fafa@gmail.com', '2024-06-17 20:05:06', NULL, NULL),
+(3, 'Daniel Calebe', 'dannCa', '$2y$10$nuYoDX7lbZrM0OfQhhJwdOGS4gmcxunusHwZgT9oBVFIoknbenGke', 'danielcalebe22@gmail.com', '2024-06-17 21:32:31', NULL, NULL),
+(4, 'kaua', 'kaua', '$2y$10$U6/9kVGOJfKBaaAVu9XLqeUprxyld2XToqj3MmlUgrMD7jyxXDFZG', 'kaua@gmail.com', '2024-06-18 18:46:59', NULL, NULL),
+(5, 'mateus', 'mateus', '$2y$10$ZjzeXZ3IZRH7GkMqBI9jT.08npw9uEN7yHuSzPy5zynyn4eb0TLry', 'mateus@gmail.com', '2024-06-18 19:59:06', NULL, NULL);
+
+--
+-- Índices para tabelas despejadas
+--
+
+--
+-- Índices para tabela `assinaturas`
+--
+ALTER TABLE `assinaturas`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `id_cliente` (`id_cliente`);
+
+--
+-- Índices para tabela `clientes`
+--
+ALTER TABLE `clientes`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Índices para tabela `filmes`
+--
+ALTER TABLE `filmes`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Índices para tabela `usuarios`
+--
+ALTER TABLE `usuarios`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `usuario` (`usuario`),
+  ADD UNIQUE KEY `email` (`email`);
+
+--
+-- AUTO_INCREMENT de tabelas despejadas
+--
+
+--
+-- AUTO_INCREMENT de tabela `assinaturas`
+--
+ALTER TABLE `assinaturas`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT de tabela `clientes`
+--
+ALTER TABLE `clientes`
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=151;
+
+--
+-- AUTO_INCREMENT de tabela `filmes`
+--
+ALTER TABLE `filmes`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+
+--
+-- AUTO_INCREMENT de tabela `usuarios`
+--
+ALTER TABLE `usuarios`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- Restrições para despejos de tabelas
+--
+
+--
+-- Limitadores para a tabela `assinaturas`
+--
+ALTER TABLE `assinaturas`
+  ADD CONSTRAINT `assinaturas_ibfk_1` FOREIGN KEY (`id_cliente`) REFERENCES `clientes` (`id`);
+COMMIT;
